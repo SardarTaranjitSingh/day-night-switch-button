@@ -13,7 +13,7 @@ You can view the live demo of the project [here](https://day-night-switch-button
 
 ## Screenshot
 
-![Day Night Switch Button](https://day-night-switch-button.netlify.app/screenshot.jpg)
+![Day Night Switch Button](https://raw.githubusercontent.com/SardarTaranjitSingh/day-night-switch-button/main/screenshot.jpg)
 
 ## Installation
 
