@@ -1,0 +1,171 @@
+:root {
+  --switch_width: 300px; /* Default value */
+  --switch_height: calc(var(--switch_width) / 2.5);
+  --switch_height_inverse: calc(var(--switch_height) * -1);;
+  --inner_sapce: calc(var(--switch_width) * 0.04);
+  --planet_size: calc(var(--switch_height) - (var(--inner_sapce) * 2));
+  --planet_shadow: calc(var(--switch_width) / 8.2);
+  --animation_speed: 0.3s;
+}
+.switch_wrrpr {
+  position: relative;
+}
+.switch_input {
+  display: none;
+}
+.switch_dv {
+  width: var(--switch_width);
+  height: var(--switch_height);
+  border-radius: var(--switch_width);
+  padding: var(--inner_sapce);
+  display: block;
+  background: #357bb3;
+  position: relative;
+  overflow: hidden;
+  transition: var(--animation_speed);
+  cursor: pointer;
+  box-shadow: inset 0px -1px 13px 0px rgb(0 0 0 / 30%),
+    inset 0px 7px 9px 0px rgb(0 0 0 / 30%);
+}
+.switch_planet {
+  position: relative;
+  height: var(--planet_size);
+  width: var(--planet_size);
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 25%),
+    4px 7px 8px 0px rgb(0 0 0 / 25%),
+    0px 0px 0px var(--planet_shadow) rgb(255 255 255 / 10%);
+  left: 0;
+  transition: var(--animation_speed);
+  z-index: 1;
+}
+.switch_planet:after,
+.switch_planet:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(255 255 255 / 10%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.switch_planet:after {
+  height: calc((var(--planet_size) + (var(--planet_shadow) * 4)));
+  width: calc((var(--planet_size) + (var(--planet_shadow) * 4)));
+}
+.switch_planet:before {
+  height: calc((var(--planet_size) + (var(--planet_shadow) * 6)));
+  width: calc((var(--planet_size) + (var(--planet_shadow) * 6)));
+}
+.switch_planet:hover {
+  left: var(--inner_sapce)
+}
+.switch_planet>div {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  transition: var(--animation_speed);
+}
+.switch_sun {
+  background: #f1c428;
+  box-shadow: inset 0px -5px 4px 0px #ba9b2e,
+    inset 3px 4px 4px 0px rgb(254 255 239 / 61%);
+  opacity: 1;
+}
+.switch_moon {
+  background: #c3c9d1;
+  box-shadow: inset 0px -5px 4px 0px #969696,
+    inset 3px 4px 4px 0px rgb(254 255 239 / 61%);
+  opacity: 0;
+}
+.switch_moon>span {
+  display: block;
+  background: #949eb2;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: inset 0px 1px 4px 0px rgb(0 0 0 / 25%)
+}
+.switch_moon .mark1 {
+  height: 15%;
+  width: 15%;
+  top: 14%;
+  left: 38%;
+}
+.switch_moon .mark2 {
+  height: 39%;
+  width: 39%;
+  top: 39%;
+  left: 17%;
+}
+.switch_moon .mark3 {
+  height: 22%;
+  width: 22%;
+  top: 49%;
+  left: 65%;
+}
+.switch_weather {
+  position: absolute;
+  top: calc(var(--switch_height_inverse) - (var(--switch_height) / 3));
+  left: 0;
+  right: 0;
+  width: var(--switch_width);
+  height: calc(var(--switch_height) * 2);
+  gap: calc(var(--switch_height) / 3);
+  display: grid;
+  transition: var(--animation_speed);
+  pointer-events: none;
+}
+.switch_weather>div {
+  height: var(--switch_height);
+  position: relative;
+}
+.switch_day {
+  position: relative;
+}
+.switch_clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.sclouds1 {
+  width: 104%;
+  top: -32%;
+  left: 2.5%;
+}
+.sclouds2 {
+  width: 109%;
+  top: -14%;
+  left: 5.5%;
+}
+.switch_night {}
+.switch_night .switch_stars {
+  width: 43%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--inner_sapce) * 2);
+  margin: auto;
+}
+.switch_dv:hover {}
+.switch_input:checked {}
+.switch_input:checked+.switch_dv {
+  background: #1c1f2c;
+}
+.switch_input:checked+.switch_dv .switch_planet {
+  left: calc(100% - var(--planet_size));
+}
+.switch_input:checked+.switch_dv .switch_planet:hover {
+  left: calc(100% - (var(--planet_size) + var(--inner_sapce)));
+}
+.switch_input:checked+.switch_dv .switch_sun {
+  opacity: 0;
+}
+.switch_input:checked+.switch_dv .switch_moon {
+  opacity: 1;
+}
+.switch_input:checked+.switch_dv .switch_weather {
+  top: 0px;
+}

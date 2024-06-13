@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day Night Switch Button</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="switch/style.css">
+</head>
+
+<body>
+
+  <div class="switch_width_changer_dv">
+    <p class="switch_width_changer_txt">Switch Width</p>
+    <input type="number" value="300" class="switch_width_changer">
+  </div>
+
+  <div class="switch_wrpr" switch_width="300">
+    <input type="checkbox" class="switch_input" id="switch1">
+    <label for="switch1" class="switch_dv">
+      <div class="switch_planet">
+        <div class="switch_sun"></div>
+        <div class="switch_moon">
+          <span class="mark1"></span>
+          <span class="mark2"></span>
+          <span class="mark3"></span>
+        </div>
+      </div>
+      <div class="switch_weather">
+        <div class="switch_night">
+          <img class="switch_stars" src="/switch/stars.svg">
+        </div>
+        <div class="switch_day">
+          <img class="switch_clouds sclouds1" src="/switch/clouds1.svg">
+          <img class="switch_clouds sclouds2" src="/switch/clouds2.svg">
+        </div>
+      </div>
+    </label>
+  </div>
+
+</body>
+
+<script src="switch/script.js"></script>
+
+</html>
